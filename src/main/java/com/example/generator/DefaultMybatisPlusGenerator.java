@@ -20,13 +20,15 @@ public class DefaultMybatisPlusGenerator extends AutoGenerator {
     private String author;
     private String moduleName;
     private String[] tableNames;
-    private String username = "root";
-    private String password = "root";
+    private String username;
+    private String password;
     private final String url;
     private final String driverName;
     private final String packageName;
 
-    public DefaultMybatisPlusGenerator(@NotNull String database, @NotNull String author, @NotNull String moduleName, @NotNull String[] tableNames, @NotNull String url, @NotNull String driverName, @NotNull String packageName) {
+    public DefaultMybatisPlusGenerator(@NotNull String database, @NotNull String author, @NotNull String moduleName,
+                                       @NotNull String[] tableNames, @NotNull String url, @NotNull String driverName,
+                                       @NotNull String packageName, @NotNull String username, @NotNull String password) {
         this.database = Objects.requireNonNull(database);
         this.author = Objects.requireNonNull(author);
         this.moduleName = Objects.requireNonNull(moduleName);
@@ -34,6 +36,8 @@ public class DefaultMybatisPlusGenerator extends AutoGenerator {
         this.url = Objects.requireNonNull(url);
         this.driverName = Objects.requireNonNull(driverName);
         this.packageName = Objects.requireNonNull(packageName);
+        this.username = Objects.requireNonNull(username);
+        this.password = Objects.requireNonNull(password);
     }
 
     private GlobalConfig getGlobalConfig(@NotNull String author) {

@@ -11,7 +11,9 @@ import java.time.LocalTime;
 public class CodeAutoGeneratorTest {
     @Test
     public void generateModuleCodes() {
+        // 数据库账号
         String username = "root";
+        // 数据库密码
         String password = "root";
         // 数据库名
         String database = "code_auto_genertaor";
@@ -25,13 +27,13 @@ public class CodeAutoGeneratorTest {
         };
         // url地址
         String url = "jdbc:mysql://localhost:3306/";
-        // 驱动名
+        // 驱动名 根据版本选择驱动
 //        String driverName = "com.mysql.cj.jdbc.Driver";
         String driverName = "com.mysql.jdbc.Driver";
         // 包名
         String packageName = "com.example.generator";
 
-        new DefaultMybatisPlusGenerator(database, author, moduleName, tableNames, url, driverName, packageName)
+        new DefaultMybatisPlusGenerator(database, author, moduleName, tableNames, url, driverName, packageName, username, password)
                 // 是否生成Controllers
                 .setGenerateControllers(true)
                 // 是否生成Services
